@@ -1,38 +1,143 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app{
+  height: 100vh;
+  width: 100vw;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/*----home css----*/
+.main-header{
+  width: 100%;
+  height: 10%;
+  background-color: #511281;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+header{
+  font-size: xx-large;
+  font-weight: bolder;
+  font-family: 'Dancing Script', cursive;
+  line-height: 60px;
+  padding-left: 30px;
+  float: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form-container{
+  float: right;
+  padding:10px 100px;
+}
+
+input{
+  height: 40px;
+  width: 300px;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  color: black;
+  margin-right: 8px;
+  font-size: 16px;
+  padding: 0px 8px;
+}
+
+#btn-search{
+  display: inline-block;
+  height: 40px;
+  width: 100px;
+  border: 2px solid white;
+  border-radius: 4px;
+  background-color: #511281;
+  color: white;
+  font-size: medium;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 20px;
+} 
+
+#btn-search:hover{
+  display: inline-block;
+  height: 40px;
+  width: 100px;
+  border: 2px solid white;
+  border-radius: 4px;
+  background-color:white;
+  color: #511281;
+  font-size: medium;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 20px;
+} 
+
+.recipe-container{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-items: center;
+  margin: 20px 0;
+}
+
+/*------ recipe style ------*/
+.recipe-card{
+  max-width: 300px;
+  overflow: hidden;
+  padding: 15px;
+  box-shadow: 0 0 15px #ddd;
+  margin: 10px 0;
+  position: relative;
+}
+
+.recipe-card img{
+  width: 100%;
+  height: 300px;
+  display: block;
+  object-fit: cover;
+}
+
+.recipe-card h2{
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-transform: capitalize;
+  cursor: pointer;
+  color: #323232;
+}
+
+.div-btn{
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#ingrd-btn, #recipe-btn{
+  display: inline-block;
+  height: 40px;
+  width: 100px;
+  border: 2px solid #511281;
+  border-radius: 4px;
+  background-color: white;
+  color: #511281;
+  font-size: medium;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px;
+}
+
+#ingrd-btn:hover, #recipe-btn:hover{
+  display: inline-block;
+  height: 40px;
+  width: 100px;
+  border: 2px solid #511281;
+  border-radius: 4px;
+  background-color: #511281;
+  color: white;
+  font-size: medium;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px;
 }
