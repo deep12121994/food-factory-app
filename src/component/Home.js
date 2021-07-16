@@ -34,7 +34,7 @@ const Home = () => {
                 <button id="btn-search">Search</button>
             </form>
             <div className="recipe-container">
-                {
+                {recipes !== [] &&
                     recipes.map(val => {
                         return <Recipe recipeList={val} key={val.id}/>;
                     })
