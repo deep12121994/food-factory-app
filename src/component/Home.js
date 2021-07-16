@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import {API_ID,API_KEY} from '../key'
 import Recipe from './Recipe';
-import DefaultError from './DefaultError';
-
-//const API_KEY = "69dda36967d346305fd46ec967e3072e";
-//const API_ID = "2da257cb";
 
 const Home = () => {
    // console.log(API_ID," ",API_KEY)
