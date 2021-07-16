@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import {API_ID,API_KEY} from '../key'
 import Recipe from './Recipe';
+import Header from './Header';
 
 const Home = () => {
    // console.log(API_ID," ",API_KEY)
@@ -22,7 +23,7 @@ const Home = () => {
 
     return(
         <div className="main-header">
-            <header>Food Factory</header>
+            <Header/>
             <form className="form-container" onSubmit={onSubmitData}>
                 <input type="text" className="search-bar" 
                 placeholder="Enter Recipe"
