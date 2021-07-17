@@ -16,12 +16,14 @@ const Home = () => {
     const getRecipes = async () => {
         const result = await Axios(url);
         if (!result.data.more) {
+            setRecipes([]);
             return setAlert("No food with such name");
+            
         }
         //console.log(result.data.hits)
         setRecipes(result.data.hits);
         setAlert("");
-        setSearchRecipe("");
+
     };
 
     const onSubmitData = (e) => {
