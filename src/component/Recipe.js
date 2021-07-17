@@ -12,8 +12,11 @@ const Recipe = ({recipeList}) => {
                 <img src={image} alt="Recipe image"/>
                 <h2>{label}</h2>
                 <div className="div-btn">
-                    <button id="ingrd-btn" onClick={() => setShowIngredients(!showIngredients)}>Ingredients</button>                    
-                    <button id="recipe-btn">Recipe</button>
+                    <button id="ingrd-btn" 
+                    onClick={() => setShowIngredients(!showIngredients)}>Ingredients</button>                    
+                    <a href={url} target="_blank" rel="noopener noreferrer" id="recipe-btn">
+                        Recipe
+                    </a>
                 </div>
                 <div className="ingredient-details">{showIngredients && <RecipeDetails ingredientsList={ingredients}/>}</div>
             </div>

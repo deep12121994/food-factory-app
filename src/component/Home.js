@@ -25,7 +25,8 @@ const Home = () => {
         <div className="main-header">
             <Header/>
             <form className="form-container" onSubmit={onSubmitData}>
-                <input type="text" className="search-bar" 
+                <input type="text" 
+                className="search-bar" 
                 placeholder="Enter Recipe"
                 autoComplete="off"
                 val = {searchRecipe}
