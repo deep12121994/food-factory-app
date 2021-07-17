@@ -1,9 +1,11 @@
 import React from 'react';
 
-const DefaultError = () => {
+const ErrorPage = ({alert}) => {
     return(
-        <h1>Recipe Not Found</h1>
+        <div className="error-msg">
+            <h3>{alert}</h3>
+        </div>
     )
 }
 
-export default DefaultError;
+export default ErrorPage;

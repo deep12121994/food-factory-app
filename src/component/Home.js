@@ -3,17 +3,25 @@ import Axios from 'axios';
 import {API_ID,API_KEY} from '../key'
 import Recipe from './Recipe';
 import Header from './Header';
+import ErrorPage from './DefaultError';
 
 const Home = () => {
    // console.log(API_ID," ",API_KEY)
     const[searchRecipe,setSearchRecipe] = useState("");
-   const [recipes,setRecipes] = useState([]);
-   const url = `https://api.edamam.com/search?q=${searchRecipe}$&app_id=${API_ID}&app_key=${API_KEY}`;
+    const [recipes,setRecipes] = useState([]);
+    const [alert, setAlert] = useState("");
+
+    const url = `https://api.edamam.com/search?q=${searchRecipe}$&app_id=${API_ID}&app_key=${API_KEY}`;
 
     const getRecipes = async () => {
         const result = await Axios(url);
-        console.log(result.data.hits)
+        if (!result.data.more) {
+            return setAlert("No food with such name");
+        }
+        //console.log(result.data.hits)
         setRecipes(result.data.hits);
+        setAlert("");
+        setSearchRecipe("");
     };
 
     const onSubmitData = (e) => {
@@ -25,6 +33,7 @@ const Home = () => {
         <div className="main-header">
             <Header/>
             <form className="form-container" onSubmit={onSubmitData}>
+            {alert !== "" && <ErrorPage alert={alert} />}
                 <input type="text" 
                 className="search-bar" 
                 placeholder="Enter Recipe"
