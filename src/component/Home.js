@@ -3,6 +3,8 @@ import Axios from "axios";
 // import { API_ID, API_KEY } from "../key";
 import Recipe from "./Recipe";
 import Header from "./Header";
+import LoadingSpinner from "./Loader";
+
 import ErrorPage from "./DefaultError";
 
 const API_KEY = "69dda36967d346305fd46ec967e3072e";
@@ -13,18 +15,26 @@ const Home = () => {
   const [searchRecipe, setSearchRecipe] = useState("");
   const [recipes, setRecipes] = useState([]);
   const [alert, setAlert] = useState("");
+  const [isLoading, setIsLoading] = useState(false)
 
   const url = `https://api.edamam.com/search?q=${searchRecipe}$&app_id=${API_ID}&app_key=${API_KEY}`;
 
   const getRecipes = async () => {
-    const result = await Axios(url);
-    if (!result.data.more) {
-      setRecipes([]);
-      return setAlert("No food with such name");
-    }
-    console.log("hits: ", result.data.hits);
-    setRecipes(result.data.hits);
-    setAlert("");
+    setIsLoading(true)
+   await Axios(url) .then((respose) => {
+      if (!respose.data.more) {
+        setIsLoading(false)
+        return setAlert("No food with such name");
+      }
+      setRecipes(respose.data.hits);
+      setIsLoading(false)
+      setAlert("");
+     
+   })
+   .catch(() => {
+    setAlert("Unable to fetch receipe list");
+      setIsLoading(false);
+   }); 
   };
 
   const onSubmitData = (e) => {
@@ -47,12 +57,16 @@ const Home = () => {
         />
         <button id="btn-search">Search</button>
       </form>
-      <div className="recipe-container">
+      {
+        isLoading ? <LoadingSpinner/>: <div className="recipe-container">
         {recipes !== [] &&
           recipes.map((val) => {
             return <Recipe recipeList={val} key={val.id} />;
           })}
       </div>
+      }
+      
+     
     </div>
   );
 };

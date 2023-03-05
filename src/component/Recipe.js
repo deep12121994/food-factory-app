@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import RecipeDetails from "./Ingredient";
 
 const Recipe = ({ recipeList }) => {
-  console.log("list: ", recipeList);
+
   const [showIngredients, setShowIngredients] = useState(false);
   const { label, image, url, ingredients } = recipeList.recipe; //destructuring
 
